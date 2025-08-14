@@ -1,0 +1,11 @@
+/* Why Choose Section với nền xanh nhạt */
+.whychoose-section-bg {
+  background: radial-gradient(circle at 55% 60%, #e0f2fe 60%, #bae6fd 100%);
+}
+.whychoose-card {
+  box-shadow: 0 4px 32px 0 #bae6fd55, 0 2px 8px 0 #60a5fa22;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.whychoose-card:hover {
+  box-shadow: 0 12px 48px 0 #38bdf855, 0 6px 24px 0 #0ea5e922;
+}

@@ -1,0 +1,243 @@
+/* src/features/Admin/Layout/adminLayout.css */
+
+/* Import custom fonts */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* Tailwind directives */
+@import "tailwindcss";
+
+/* Theme variables */
+@layer base {
+  :root {
+    --font-figtree: "Figtree", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --color-bg: #f9fafb;
+    --color-sidebar-bg: #ffffff;
+    --color-border: #e5e7eb;
+    --color-text: #374151;
+    --color-text-muted: #6b7280;
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-secondary: #ef4444;
+    --color-secondary-hover: #dc2626;
+  }
+  html {
+    font-family: var(--font-inter);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+/* Component layer */
+@layer components {
+  /* Layout wrapper */
+  .admin-layout {
+    @apply flex flex-col md:flex-row h-screen w-full;
+    background-color: var(--color-bg);
+  }
+
+  /* Sidebar */
+  .admin-sidebar {
+    @apply hidden md:flex flex-shrink-0 w-full md:w-64 bg-[var(--color-sidebar-bg)] border-r border-[var(--color-border)] flex flex-col justify-between;
+  }
+  .link-logo {
+    @apply flex items-center px-6 py-4 border-b border-[var(--color-border)];
+    color: var(--color-primary);
+    font-family: var(--font-figtree);
+    gap: 8px;
+  }
+
+  /* Nav items wrapper */
+  .nav-items {
+    @apply flex-1 mt-6;
+  }
+  .nav-items > ul > li {
+    @apply mb-2;
+  }
+  /* Each nav link */
+  .nav-item {
+    @apply flex items-center gap-4 px-6 py-3 rounded-lg transition-colors duration-200 mb-2 text-[var(--color-text)];
+  }
+  .nav-item:hover {
+    @apply bg-[var(--color-bg)];
+  }
+  /* Active state */
+  .nav-item.active {
+    @apply bg-[var(--color-primary)] text-white shadow-lg border-l-4 border-[var(--color-secondary)];
+  }
+
+  /* Sidebar footer */
+  .nav-footer {
+    @apply flex flex-col md:flex-row items-center justify-between p-4 border-t border-[var(--color-border)];
+  }
+  .nav-footer img {
+    @apply w-10 h-10 rounded-full;
+  }
+
+  /* Main content area */
+  .admin-content {
+    @apply flex-1 overflow-y-auto p-6 space-y-8;
+  }
+
+  /* Page header */
+  .header {
+    @apply flex flex-col md:flex-row justify-between items-center p-6 bg-white border-b border-[var(--color-border)];
+  }
+
+  /* Buttons */
+  .button-primary {
+    @apply px-4 py-2 font-medium rounded-lg text-white;
+    background-color: var(--color-primary);
+  }
+  .button-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+  .button-secondary {
+    @apply px-4 py-2 font-medium rounded-lg text-white;
+    background-color: var(--color-secondary);
+  }
+  .button-secondary:hover {
+    background-color: var(--color-secondary-hover);
+  }
+
+  /* Card styles */
+  .list-card,
+  .stats-card,
+  .chart-card {
+    @apply bg-white p-6 rounded-lg shadow;
+  }
+
+  /* Dropdown actions */
+  .actions-toggle {
+    @apply p-2 rounded-full hover:bg-[var(--color-bg)] transition;
+  }
+  .actions-menu {
+    @apply absolute right-0 mt-2 w-48 bg-white border border-[var(--color-border)] rounded-lg shadow-lg z-10 text-[var(--color-text)];
+  }
+  .actions-menu li button {
+    @apply block w-full text-left px-4 py-2 text-[var(--color-text)] hover:bg-[var(--color-bg)];
+  }
+
+  /* Dashboard grids */
+  .stats-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+  }
+  .chart-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6;
+  }
+  .list-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6;
+  }
+
+  /* Statistics cards */
+  .stats-card {
+    @apply flex flex-col items-center justify-center;
+  }
+  .stats-label {
+    @apply text-sm font-medium text-[var(--color-text)];
+  }
+  .stats-value {
+    @apply text-3xl font-semibold text-[var(--color-text)] mt-2;
+  }
+
+  /* Chart header */
+  .chart-header {
+    @apply text-xl font-semibold text-[var(--color-text)] mb-4;
+  }
+
+  /* Form styles */
+  .form-card {
+    @apply w-full sm:max-w-2xl bg-white rounded-lg border border-[var(--color-border)] p-6 space-y-6 mx-auto;
+  }
+  .form-group {
+    @apply flex flex-col space-y-2;
+  }
+  .form-label {
+    @apply text-sm font-medium text-[var(--color-text-muted)];
+  }
+  .form-input,
+  .form-select {
+    @apply block w-full bg-white border border-[var(--color-border)] rounded-lg py-3 px-4 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)];
+  }
+  .form-input[type="file"] {
+    @apply py-2;
+  }
+
+  /* Admin Login page styles */
+  .admin-login-container {
+    @apply relative min-h-screen flex items-center justify-center;
+  }
+  .admin-login-container::before {
+    content: "";
+    @apply absolute inset-0 bg-cover bg-center;
+    background-image: url("/images/bg/Admin.png");
+    z-index: 0;
+  }
+  .admin-login-form {
+    @apply relative z-10 w-full sm:max-w-sm bg-white p-8 rounded-2xl shadow-xl;
+    backdrop-filter: blur(10px);
+  }
+  .login-logo-container {
+    @apply flex items-center justify-center mb-4 space-x-2;
+  }
+  .login-logo-icon {
+    @apply w-10 h-10;
+  }
+  .login-logo-text {
+    @apply text-2xl font-bold text-gray-800;
+  }
+  .login-title {
+    @apply text-lg font-semibold text-gray-800 text-center mb-1;
+  }
+  .login-subtitle {
+    @apply text-center text-sm text-gray-600 mb-6;
+  }
+  .login-error {
+    @apply mb-4 text-red-600 text-center;
+  }
+  .login-form-group label {
+    @apply block text-gray-700 text-sm mb-1;
+  }
+  .login-form-group .form-input {
+    @apply w-full border border-gray-200 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4;
+  }
+  .remember-group {
+    @apply mb-4 flex items-center;
+  }
+  .remember-checkbox {
+    @apply h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded;
+  }
+  .remember-label {
+    @apply ml-2 text-sm text-gray-700;
+  }
+  .login-submit {
+    @apply w-full py-2 rounded-md text-white font-medium mb-4;
+    background-color: var(--color-primary);
+  }
+  .login-submit:hover {
+    background-color: var(--color-primary-hover);
+  }
+  .login-links {
+    @apply flex justify-between text-sm;
+  }
+  .login-links a {
+    @apply hover:underline;
+  }
+  .login-links .text-blue {
+    @apply text-blue-600;
+  }
+  .login-links .text-gray {
+    @apply text-gray-600;
+  }
+}
+
+/* Utility overrides */
+@layer utilities {
+  .scrollable {
+    @apply overflow-auto;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}

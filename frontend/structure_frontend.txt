@@ -1,0 +1,101 @@
+frontend/
+├── .env
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+├── eslint.config.js
+├── vite.config.js
+├── index.html
+├── structure_frontend.txt
+│
+├── public/
+│   ├── vite.svg
+│   ├── images/
+│   │   ├── arrow-down.svg
+│   │   ├── x.png
+│   │   ├── fb.png
+│   │   ├── insta.png
+│   │   └── bg/
+│   │       ├── bg.png
+│   │       └── bg_Auth.jpg
+│   └── models/
+│       ├── solar_system_animation.glb
+│       └── fad1f8a62d3848d0be664339e6f3b1a2.glb
+│
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── index.css
+    │
+    ├── components/
+    │   ├── PlanetCard/
+    │   │   ├── PlanetCard.jsx
+    │   │   └── PlanetCard.css
+    │   ├── ui/
+    │   │   ├── Button.jsx
+    │   │   ├── Navbar.jsx
+    │   │   └── Footer.jsx
+    │   └── middleware/
+    │       └── AdminPrivateRoute.jsx
+    │
+    ├── features/
+    │   ├── Auth/
+    │   │   ├── Login.jsx
+    │   │   ├── Register.jsx
+    │   │   ├── Auth.css
+    │   │   └── AuthContext.jsx
+    │   │
+    │   ├── Home/
+    │   │   ├── Home.jsx
+    │   │   └── components/
+    │   │       ├── HomeHeader.jsx
+    │   │       ├── Starfield.jsx
+    │   │       ├── Lights.jsx
+    │   │       ├── Loader.jsx
+    │   │       ├── Scene.jsx
+    │   │       ├── SolarSystem.jsx
+    │   │       └── SolarSystem1.jsx
+    │   │
+    │   ├── Admin/
+    │   │   ├── AdminUserForm.jsx
+    │   │   ├── AdminUserList.jsx
+    │   │   ├── AdminUserPasswordForm.jsx
+    │   │   ├── Dashboard/
+    │   │   │   └── AdminDashboard.jsx
+    │   │   ├── Events/
+    │   │   │   ├── AdminEventList.jsx
+    │   │   │   └── AdminEventForm.jsx
+    │   │   ├── Planets/
+    │   │   │   ├── AdminPlanetList.jsx
+    │   │   │   └── AdminPlanetForm.jsx
+    │   │   ├── Quizzes/
+    │   │   │   ├── AdminQuizList.jsx
+    │   │   │   └── AdminQuizForm.jsx
+    │   │   └── Users/    ← (hiện tại chưa có file con)
+    │   │
+    │   ├── Events/       ← (chưa có file con)
+    │   ├── Planets/      ← (chưa có file con)
+    │   └── Quizzes/      ← (chưa có file con)
+    │
+    ├── layouts/
+    │   ├── MainLayout.jsx
+    │   └── HomeLayout.jsx
+    │
+    ├── routes/
+    │   └── AppRouter.jsx
+    │
+    ├── services/
+    │   ├── apiClient.js
+    │   ├── authService.js
+    │   ├── planetService.js
+    │   ├── quizService.js
+    │   ├── eventService.js
+    │   ├── pageviewService.js
+    │   ├── analyticsService.js
+    │   └── userService.js
+    │
+    ├── context/        ← (hiện tại chưa có file con)
+    ├── hooks/          ← (hiện tại chưa có file con)
+    └── utils/          ← (hiện tại chưa có file con)
+506740663123-ioao8u5jrm1figvhgoopovuusp7dq5pa.apps.googleusercontent.com

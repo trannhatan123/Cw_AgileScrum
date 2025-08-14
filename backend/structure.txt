@@ -1,0 +1,62 @@
+backend/
+├── .env
+├── app.js
+├── package.json
+├── package-lock.json
+├── structure.txt
+├── seed.js
+├── seedEvent.js
+├── seedQuiz.js
+├── seedUser.js
+│
+├── config/
+│   └── database.js
+│
+├── models/
+│   ├── User.js
+│   ├── Planet.js
+│   ├── Quiz.js
+│   ├── Event.js
+│   └── Pageview.js
+│
+├── controllers/
+│   ├── authController.js
+│   ├── userController.js
+│   ├── planetController.js
+│   ├── quizController.js
+│   ├── eventController.js
+│   ├── analyticsController.js
+│   └── pageviewController.js
+│
+├── routes/
+│   ├── authRoutes.js
+│   ├── userRoutes.js
+│   ├── planetRoutes.js
+│   ├── quizRoutes.js
+│   ├── eventRoutes.js
+│   ├── analyticsRoutes.js
+│   └── pageviewRoutes.js
+│
+├── middleware/
+│   ├── authMiddleware.js
+│   ├── roleMiddleware.js
+│   ├── pageviewLogger.js
+│   └── uploadImage.js
+│
+├── services/
+│   └── cache.js
+│
+├── images/            ← ảnh tĩnh hành tinh
+│   ├── mercury.png
+│   ├── venus.png
+│   ├── earth.png
+│   ├── mars.png
+│   ├── jupiter.png
+│   ├── saturn.png
+│   ├── neptune.png
+│   └── pluto.png
+│
+└── uploads/           ← ảnh do người dùng upload
+    ├── 1749439947…png
+    ├── 1749475783…png
+    └── …  

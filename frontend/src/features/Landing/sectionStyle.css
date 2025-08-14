@@ -1,0 +1,562 @@
+@import "tailwindcss";
+
+/* ==== Font mặc định cho toàn bộ section ==== */
+.section,
+.section * {
+  font-family: "Mona Sans", Inter, sans-serif;
+  letter-spacing: 0;
+}
+
+/* ==================== NAVBAR FIGMA STYLE ==================== */
+.section-navbar {
+  @apply w-full flex justify-between items-center fixed top-0 left-0 z-50 bg-white;
+  height: 90px;
+  padding-left: 180px;
+  padding-right: 180px;
+  box-shadow: 0 1px 0 0 #e5e5e5;
+}
+@media (min-width: 640px) {
+  .section-navbar { height: 66px; padding-left: 18px; padding-right: 18px; }
+}
+@media (min-width: 768px) {
+  .section-navbar { height: 80px; padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .section-navbar { height: 90px; padding-left: 120px; padding-right: 120px; }
+}
+@media (min-width: 1280px) {
+  .section-navbar { height: 96px; padding-left: 180px; padding-right: 180px; }
+}
+/* Logo size responsive */
+.section-navbar-logo img {
+  width: 48px; height: 48px;
+}
+@media (min-width: 640px) {
+  .section-navbar-logo img { width: 56px; height: 56px; }
+}
+@media (min-width: 768px) {
+  .section-navbar-logo img { width: 64px; height: 64px; }
+}
+@media (min-width: 1280px) {
+  .section-navbar-logo img { width: 80px; height: 80px; }
+}
+
+/* Logo trái navbar */
+.section-navbar-logo {
+  @apply flex items-center gap-2 cursor-pointer;
+}
+.section-logo-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #111;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  @apply select-none;
+}
+
+/* ==== MENU NGANG ==== */
+.section-navbar-menu {
+  @apply hidden md:flex items-center;
+  gap: 5px;
+}
+.section-navbar-menu li {
+  position: relative;
+}
+.section-navbar-menu li > a {
+  position: relative;
+  font-size: 18px; /* To hơn, đúng Figma */
+  font-weight: 450; /* Không bold, đúng Figma */
+  color: #111;
+  line-height: 56px;
+  padding: 0 18px;
+  border-radius: 0;
+  background: none;
+  transition: color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Tạo underline hiệu ứng mượt */
+.section-navbar-menu li > a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px; /* khoảng cách với text */
+  height: 2px;
+  background: #111;
+  transform: scaleX(0);
+  transition: transform 0.23s cubic-bezier(0.42, 0, 0.15, 1.01);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* Hover: hiện underline */
+.section-navbar-menu li > a:hover::after,
+.section-navbar-menu li > a.active::after {
+  transform: scaleX(1);
+}
+
+/* Hover: đậm chữ hơn một chút */
+.section-navbar-menu li > a:hover,
+.section-navbar-menu li > a.active {
+  color: #111;
+  font-weight: 500;
+  background: none;
+}
+
+/* ==== CTA BUTTON GROUP (phải navbar) ==== */
+.section-navbar-cta {
+  @apply flex items-center gap-2;
+}
+
+/* ==== Nút phụ (Log in/Log out) ==== */
+.section-btn-secondary {
+  font-size: 30px;
+  font-weight: 400;
+  color: #333;
+  padding: 5px 5px;
+  border-radius: 7px;
+  border: 1px solid #e5e5e5;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.section-btn-secondary:hover {
+  background: #f5f5f7;
+  color: #111;
+}
+
+/* ==== Nút chính (Get started/Khám phá) ==== */
+.section-btn-main {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 7px;
+  background: #111;
+  border: none;
+  transition: background 0.2s;
+}
+.section-btn-main:hover {
+  background: #222;
+}
+
+/* ==== Responsive navbar padding & font ==== */
+@media (max-width: 900px) {
+  .section-navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .section-logo-text {
+    font-size: 18px;
+  }
+  .section-navbar-menu {
+    gap: 16px;
+  }
+  .section-btn-main,
+  .section-btn-secondary {
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+}
+/* ==================== CONTENT BLOCK (giữ nguyên nếu dùng landing) ==================== */
+.section-content-container {
+  @apply container mx-auto pt-32 pb-12 flex flex-col md:flex-row items-center gap-12 z-10 relative;
+}
+.section-content-title {
+  @apply text-[4.5rem] font-extrabold leading-[1.1] text-black mb-6 tracking-normal;
+}
+.section-content-desc {
+  @apply text-lg  text-6xl font-normal text-[#1a1a1a] max-w-[600px] mb-8 tracking-normal;
+}
+.section-btn-main {
+  @apply bg-black text-white px-6 py-3 rounded font-bold text-base hover:bg-gray-800 transition;
+}
+.section-btn-secondary {
+  @apply border border-gray-400 px-6 py-3 rounded font-bold text-base text-gray-800 hover:bg-gray-100 transition;
+}
+
+/* ==================== VISUAL BLOCK ==================== */
+.section-visual-main {
+  @apply flex-1 flex items-center justify-center relative min-h-[400px] h-[460px];
+}
+.section-visual-box {
+  @apply w-full h-full relative rounded-xl shadow-2xl bg-black border-2 border-gray-100 overflow-hidden;
+}
+@media (min-width: 640px) {
+  .section-visual-box { min-height: 260px; height: 320px; }
+}
+@media (min-width: 768px) {
+  .section-visual-box { min-height: 340px; height: 390px; }
+}
+@media (min-width: 1024px) {
+  .section-visual-box { min-height: 400px; height: 460px; }
+}
+.section-visual-widebox {
+  @apply relative w-[80vw] h-[820px] rounded-2xl shadow-2xl bg-black border-2 border-gray-100 overflow-hidden;
+}
+
+
+/* ==================== FEATURE NAV ==================== */
+.section-feature-nav {
+  @apply w-full flex flex-wrap justify-center gap-3 mt-2 mb-4;
+}
+@media (min-width: 640px) {
+  .section-feature-nav {
+    gap: 12px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .section-feature-nav {
+    gap: 20px;
+  }
+}
+.section-feature-nav-item {
+  @apply px-3 py-1 rounded bg-gray-100 text-black text-xs font-medium cursor-pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: #222;
+  transition: color 0.18s;
+  z-index: 1;
+}
+@media (min-width: 640px) {
+  .section-feature-nav-item {
+    font-size: 1.18rem;
+    padding: 12px 26px;
+    min-width: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-feature-nav-item {
+    font-size: 1.32rem;
+    padding: 18px 40px;
+    min-width: 180px;
+  }
+}
+/* Nền động cho hiệu ứng từ trong ra ngoài */
+.section-feature-nav-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.42, 0, 0.15, 1.01),
+    background 0.18s;
+  animation: none;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Khi hover: animate border-radius thu nhỏ dần */
+.section-feature-nav-item.planets:hover::before {
+  background: #60a5fa;
+  transform: scaleX(1);
+  animation: navItemHoverRadius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01) forwards;
+}
+.section-feature-nav-item.threeD:hover::before {
+  background: #ffd600;
+  transform: scaleX(1);
+  animation: navItemHoverRadius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01) forwards;
+}
+.section-feature-nav-item.astronomy:hover::before {
+  background: #9f7aea;
+  transform: scaleX(1);
+  animation: navItemHoverRadius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01) forwards;
+}
+.section-feature-nav-item.quiz:hover::before {
+  background: #ff9800;
+  transform: scaleX(1);
+  animation: navItemHoverRadius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01) forwards;
+}
+.section-feature-nav-item.solar:hover::before {
+  background: #34d399;
+  transform: scaleX(1);
+  animation: navItemHoverRadius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01) forwards;
+}
+
+/* Active trạng thái */
+.section-feature-nav-item.active {
+  background: #ededed;
+  color: #222;
+}
+
+/* Khi hover, đổi màu chữ nếu nền đậm */
+.section-feature-nav-item.planets:hover,
+.section-feature-nav-item.astronomy:hover,
+.section-feature-nav-item.quiz:hover,
+.section-feature-nav-item.solar:hover {
+  color: #fff;
+  z-index: 1;
+}
+.section-feature-nav-item.threeD:hover {
+  color: #fff;
+  z-index: 1;
+}
+
+/* Chữ luôn nằm trên nền động */
+.section-feature-nav-item span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.18s;
+}
+
+/* Chữ luôn nằm trên nền động */
+.section-feature-nav-item span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.18s;
+}
+
+/* ==================== TESTIMONIAL BLOCK ==================== */
+.section-testimonial {
+  @apply flex flex-col md:flex-row items-center justify-between gap-14 px-12 py-20 max-w-[80vw] mx-auto bg-white w-full;
+  /* max-width chuyển thành cú pháp chuẩn Tailwind */
+}
+@media (min-width: 640px) {
+  .hero-testimonial-wrapper { padding-left: 24px; padding-right: 24px; }
+}
+@media (min-width: 1024px) {
+  .hero-testimonial-wrapper { padding-left: 48px; padding-right: 48px; }
+}
+.section-testimonial-quote-icon {
+  @apply flex-shrink-0 mb-12 md:mb-0;
+  /* Cách dưới cho mobile, bỏ cách dưới trên desktop */
+  margin-left: 9rem;
+}
+
+.section-testimonial-quote-image {
+  width: 160px; /* giữ kích thước */
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  display: block;
+}
+
+.section-testimonial-text {
+  @apply flex-1 max-w-4xl;
+}
+
+.section-testimonial-content {
+  @apply text-5xl font-semibold text-black leading-[1.3];
+
+  /* Có thể tăng line-height nếu bạn thấy chữ quá sát */
+}
+
+.section-testimonial-meta {
+  @apply flex flex-col items-start gap-6 min-w-[280px];
+}
+
+.section-testimonial-company {
+  @apply font-extrabold text-3xl text-black;
+}
+
+.section-testimonial-person {
+  @apply flex items-center gap-6;
+}
+
+.section-testimonial-avatar {
+  @apply w-20 h-20 rounded-full border-4 border-yellow-600 object-cover;
+}
+
+.section-testimonial-person-info {
+  @apply flex flex-col;
+}
+
+.section-testimonial-author {
+  @apply font-semibold text-gray-900 text-lg;
+}
+
+.section-testimonial-desc {
+  @apply text-base text-gray-600;
+}
+
+/* Responsive nhỏ hơn để text không quá to */
+@media (max-width: 768px) {
+  .section-testimonial-content {
+    @apply text-3xl;
+    line-height: 1.4;
+  }
+  .section-testimonial-company {
+    @apply text-2xl;
+  }
+  .section-testimonial-avatar {
+    @apply w-16 h-16 border-2;
+  }
+  .section-testimonial-meta {
+    @apply min-w-0;
+  }
+}
+
+/* ==================== TRUST LOGOS ==================== */
+.section-trust-logos-wrapper {
+  overflow: hidden;
+  width: 100%;
+  /* giống border-gray-200 */
+  padding: 1.5rem 0; /* py-6 */
+  background-color: white;
+}
+
+.section-trust-logos-roll {
+  display: flex;
+  gap: 2.5rem; /* gap-10 */
+  animation: scroll-left 30s linear infinite;
+  width: max-content; /* chiều rộng vừa đủ chứa tất cả logo */
+}
+
+.section-trust-logo-img {
+  width: 140px;
+  height: 60px;
+  object-fit: contain;
+
+  /* Bỏ grayscale để ảnh không bị nhạt */
+  filter: contrast(120%) brightness(90%);
+  opacity: 1;
+}
+/* Animation keyframes */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===================== LOGIN BUTTON ANIMATION ===================== */
+
+.section-login-animate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.3em 1.5em;
+  min-width: 135px;
+  color: #111;
+  background: #fff;
+  border: 1.5px solid #222;
+  border-radius: 15px;
+  box-sizing: border-box;
+  transition: border-radius 0.35s cubic-bezier(0.42, 0, 0.15, 1.01),
+    border-color 0.25s, background 0.25s;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+.section-login-animate .login-arrow {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+  margin-right: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s cubic-bezier(0.42, 0, 0.15, 1.01),
+    width 0.32s cubic-bezier(0.42, 0, 0.15, 1.01),
+    margin-right 0.32s cubic-bezier(0.42, 0, 0.15, 1.01),
+    transform 0.4s cubic-bezier(0.42, 0, 0.15, 1.01);
+  will-change: opacity, transform, width, margin-right;
+}
+.section-login-animate .login-label {
+  display: inline-block;
+  transition: transform 0.32s cubic-bezier(0.42, 0, 0.15, 1.01);
+  will-change: transform;
+}
+/* Khi đã hover lần đầu (class hovered được add vào) */
+.section-login-animate.hovered {
+  border-radius: 6px;
+  border-color: #222;
+}
+.section-login-animate.hovered .login-arrow {
+  opacity: 1;
+  width: 26px; /* Kích thước icon */
+  margin-right: 8px; /* Cách chữ */
+  transform: translateX(0);
+}
+.section-login-animate.hovered .login-label {
+  transform: translateX(7px);
+}
+.section-explore-animate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 7px;
+  background: #111;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s,
+    border-radius 0.3s cubic-bezier(0.42, 0, 0.15, 1.01);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-explore-animate .explore-arrow {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+  margin-right: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s cubic-bezier(0.42, 0, 0.15, 1.01),
+    width 0.32s cubic-bezier(0.42, 0, 0.15, 1.01),
+    margin-right 0.32s cubic-bezier(0.42, 0, 0.15, 1.01),
+    transform 0.4s cubic-bezier(0.42, 0, 0.15, 1.01);
+  will-change: opacity, transform, width, margin-right;
+}
+.section-explore-animate.hovered .explore-arrow {
+  opacity: 1;
+  width: 26px;
+  margin-right: 8px;
+  transform: translateX(0);
+}
+
+.section-explore-animate .explore-label {
+  display: inline-block;
+  transition: transform 0.32s cubic-bezier(0.42, 0, 0.15, 1.01);
+  will-change: transform;
+}
+.section-explore-animate.hovered .explore-label {
+  transform: translateX(7px);
+}
+.section-explore-animate:hover {
+  background: #222;
+}
+.section-login-animate {
+  min-width: 100px; /* hoặc 170 tuỳ độ dài text */
+  height: 55px; /* chuẩn Figma/Material UI */
+  padding: 0 24px;
+  font-size: 19px; /* to như mẫu */
+  font-weight: 600; /* siêu đậm, chuẩn Figma */
+  border-radius: 8px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  letter-spacing: 0;
+}
+.section-explore-animate {
+  min-width: 180px; /* hoặc 170 tuỳ độ dài text */
+  height: 55px; /* chuẩn Figma/Material UI */
+  padding: 0 24px;
+  font-size: 19px; /* to như mẫu */
+  font-weight: 600; /* siêu đậm, chuẩn Figma */
+  border-radius: 8px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  letter-spacing: 0;
+}

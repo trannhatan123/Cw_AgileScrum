@@ -1,0 +1,6 @@
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hành tinh -->
+  <circle cx="12" cy="12" r="6" stroke="#141719" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+  <!-- Vành nghiêng -->
+  <ellipse cx="12" cy="12" rx="10" ry="3" transform="rotate(-30 12 12)" stroke="#141719" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></ellipse>
+</svg>

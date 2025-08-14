@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Auth */
+:root {
+  --auth-bg: rgba(24,24,24,0.85);
+  --auth-overlay: rgba(0,0,0,0.5);
+  --auth-error-bg: rgba(220,38,38,0.1);
+}
+
+/*── Layer: Components ─────────────────────────────────*/
+@layer components {
+  /* Layout: Page & Panels */
+  .auth-page {
+    @apply flex flex-col md:flex-row min-h-screen bg-fixed bg-center bg-cover relative;
+    background: url('/images/bg/bg.png') center/cover no-repeat fixed;
+  }
+  .auth-page::before {
+    content: '';
+    @apply absolute inset-0 z-10;
+    background-color: var(--auth-overlay);
+  }
+  .auth-left {
+    @apply hidden md:flex md:flex-1 relative overflow-hidden;
+  }
+  .auth-left__text {
+    @apply hidden md:block absolute text-white text-2xl md:text-4xl font-bold text-center leading-tight;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Form Container & Typography */
+  .auth-right {
+    @apply flex-1 flex items-center justify-center px-4 py-6 md:px-8 md:py-10;
+  }
+  .auth-container {
+    @apply relative z-20 w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg  p-6 sm:p-8 md:p-10 text-white font-sans shadow-lg space-y-8;
+    background-color: var(--auth-bg);
+  }
+  .auth-container h2 {
+    @apply text-xl sm:text-2xl md:text-3xl text-center font-bold mb-5;
+    color: theme('colors.gray.100');
+  }
+
+  /* Inputs & Validation */
+  .auth-error {
+    @apply p-3 rounded mb-4 text-sm text-left;
+    background-color: var(--auth-error-bg);
+    color: theme('colors.red.400');
+  }
+  .auth-container label {
+    @apply block mb-2 text-sm text-gray-300;
+  }
+  .auth-container input {
+    @apply w-full p-3 mb-4 rounded outline-none transition;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #ffffff;
+    font-size: 1rem;
+  }
+  .auth-container input::placeholder {
+    color: rgba(255,255,255,0.6);
+  }
+  .auth-container input:hover {
+    background: rgba(255,255,255,0.15);
+  }
+  .auth-container input:focus {
+    background: rgba(255,255,255,0.2);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+  }
+
+  /* Buttons */
+  .auth-submit {
+    @apply w-full p-3 mt-2 font-semibold transition rounded cursor-pointer;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  .auth-submit:hover {
+    @apply bg-white text-gray-900;
+  }
+  .auth-submit:disabled {
+    @apply border-gray-400 text-gray-400 cursor-not-allowed;
+  }
+
+  /* Divider */
+  .auth-divider {
+    @apply flex items-center my-5;
+  }
+  .auth-divider hr {
+    @apply flex-grow h-px bg-gray-400 border-none;
+  }
+  .auth-divider span {
+    @apply mx-4 text-sm text-gray-300;
+  }
+
+  /* Social Buttons */
+  .auth-social-btn {
+    @apply w-full flex items-center justify-center p-3 mb-3 font-medium transition rounded cursor-pointer;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.1);
+  }
+  .auth-social-btn svg {
+    @apply mr-2 text-lg;
+  }
+  .auth-social-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  .auth-social-btn.google {
+    @apply bg-white text-black;
+  }
+  .auth-social-btn.google:hover {
+    @apply bg-gray-200;
+  }
+  .auth-social-btn.facebook {
+    @apply bg-blue-600 text-white;
+  }
+  .auth-social-btn.facebook:hover {
+    @apply bg-blue-700;
+  }
+  .auth-social-btn.github {
+    @apply bg-gray-800 text-white;
+  }
+  .auth-social-btn.github:hover {
+    @apply bg-gray-900;
+  }
+
+  /* Switch & Links */
+  .auth-switch {
+    @apply text-center mt-4 text-sm text-gray-300;
+  }
+  .auth-switch a {
+    @apply underline text-white;
+  }
+  .auth-switch a:hover {
+    @apply text-gray-200;
+  }
+  .auth-forgot-password {
+    @apply w-full text-left  mt-2 mb-4;
+  }
+  .auth-forgot-password a {
+    
+    @apply inline text-sm underline text-white hover:text-blue-500;
+  background: transparent;
+  }
+  .auth-forgot-password a:hover {
+    @apply text-blue-500;
+
+  }
+}
